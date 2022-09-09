@@ -50,7 +50,7 @@ def run():
         while True:
             result = instance.read()
             if result.is_valid():
-                data = '{"temp":"%-3.1f"}' % result.temperature
+                data = '{"temp":"%-3.1f", "hum":"%-3.1f"}' % (result.temperature, result.humidity)
                 client.publish(topic=topic, payload=data, qos=0)
                 print(data)
             time.sleep(6)
